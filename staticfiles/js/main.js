@@ -14,7 +14,6 @@ jQuery(document).ready(function($) {
 	//FIX HOVER EFFECT ON IOS DEVICES
 	document.addEventListener("touchstart", function(){}, true);
 
-
 });
 
 $(window).load(function(){
@@ -33,24 +32,3 @@ $(window).load(function(){
     });
 
 });
-
-//GOOGLE MAP
-function init_map() {
-    var myOptions = {
-        zoom: 14,
-        center: new google.maps.LatLng(-22.902488, -43.175939), //change the coordinates
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        scrollwheel: false,
-        styles: [{featureType:'all',stylers:[{saturation:-100},{gamma:0.90}]}]
-    };
-    map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-    marker = new google.maps.Marker({
-        map: map,
-        position: new google.maps.LatLng(-22.902488, -43.175939) //change the coordinates
-    });
-
-}
-google.maps.event.addDomListener(window, 'load', init_map);
-
-
-
