@@ -14,7 +14,6 @@ jQuery(document).ready(function($) {
 	//FIX HOVER EFFECT ON IOS DEVICES
 	document.addEventListener("touchstart", function(){}, true);
 
-
 });
 
 $(window).load(function(){
