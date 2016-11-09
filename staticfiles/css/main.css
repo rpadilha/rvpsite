@@ -285,7 +285,6 @@ section header h2 {
 /* REGISTER */
 
 .register {
-    background: url(../img/top-bg.jpg) no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -301,6 +300,16 @@ section header h2 {
     min-height: 60px;
     padding-top: 10px;
     padding-bottom: 0;
+    color: #000000;
+}
+
+.register h3 {
+    color: #999999;
+    font-family: "sinkin_sans600_semibold";
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 0 0 11px;
+    min-height: 60px;
 }
 
 .register p {
