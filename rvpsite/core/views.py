@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+
 def home(request):
     return render(request, 'index.html')
 
@@ -9,8 +10,8 @@ def area(request):
 
 
 def representations(request):
-    return render(request, 'representadas.html')
+    return render(request, 'representations.html')
 
 
 def register(request):
-    return render(request, 'cadastro.html')
+    return render(request, 'register.html')
