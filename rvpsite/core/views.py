@@ -13,5 +13,5 @@ def representations(request):
     return render(request, 'representations.html')
 
 
-def register(request):
-    return render(request, 'register.html')
+def clients(request):
+    return render(request, 'clients.html')
