@@ -3,7 +3,7 @@ from django.test import TestCase
 from rvpsite.register.forms import RegisterForm
 
 
-class RegisterTest(TestCase):
+class RegisterGet(TestCase):
     def setUp (self):
         self.response = self.client.get('/cadastro/')
 
@@ -19,12 +19,16 @@ class RegisterTest(TestCase):
 
     def test_html(self):
         """"HTML must contain input tags"""
-        self.assertContains(self.response, '<form')
-        self.assertContains(self.response, '<input', 11)
-        self.assertContains(self.response, 'type="text"', 8)
-        self.assertContains(self.response, 'type="email"')
-        self.assertContains(self.response, '<select', 2)
-        self.assertContains(self.response, 'type="submit"')
+        tags = (('<form', 1),
+                ('<input', 11),
+                ('type="text"', 8),
+                ('type="email"', 1),
+                ('<select', 2),
+                ('type="submit"', 1))
+
+        for text, count in tags:
+            with self.subTest():
+                self.assertContains(self.response, text, count)
 
     def test_csrf(self):
         """"HTML must contain csrf"""
@@ -43,7 +47,7 @@ class RegisterTest(TestCase):
                                  list(form.fields))
 
 
-class RegisterPostTest(TestCase):
+class RegisterPostValid(TestCase):
     def setUp (self):
         data = dict(name='Jovel Materiais de Construção', cnpj='01234567890123',
                     insc_estadual='012345678', phone='21988010276', email='tonare@gmail.com',
@@ -59,26 +63,8 @@ class RegisterPostTest(TestCase):
         """1 email should be sent"""
         self.assertEqual(1, len(mail.outbox))
 
-    def test_register_mail_subject (self):
-        """E-mail should have an specific subject"""
-        email = mail.outbox[0]
-        expect = 'RVP Representação - Confirmação de Cadastro'
-        self.assertEqual(expect, email.subject)
 
-    def test_register_mail_sender(self):
-        """E-mail should have an specific sender"""
-        email = mail.outbox[0]
-        expect = 'rvprepresentacao@gmail.com'
-        self.assertEqual(expect, email.from_email)
-
-    def test_subscription_mail_to (self):
-        """E-mail should have 2 destinations"""
-        email = mail.outbox[0]
-        expect = ['tonare@gmail.com', 'tonare@gmail.com']
-        self.assertEqual(expect, email.to)
-
-
-class RegisterInvalidPost(TestCase):
+class RegisterPostInvalid(TestCase):
     def setUp(self):
         self.response = self.client.post('/cadastro/', {})
 

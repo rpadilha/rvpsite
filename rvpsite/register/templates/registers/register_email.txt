@@ -7,6 +7,7 @@ CNPJ: {{ cnpj }}
 Inscrição Estadual: {{ insc_estadual }}
 Telefone: {{ phone }}
 E-mail: {{ email }}
+Pessoa de Contato: {{ contact_person }}
 Endereço: {{ address }}
 Bairro: {{ neighborhood }}
 Cidade: {{ city }}

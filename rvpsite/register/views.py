@@ -3,7 +3,6 @@ from django.core import mail
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.template.loader import render_to_string
-
 from rvpsite.register.forms import RegisterForm
 
 
@@ -12,7 +11,7 @@ def register(request):
         form = RegisterForm(request.POST)
 
         if form.is_valid():
-            body = render_to_string('registers/register_email.txt', form.cleaned_data)
+            body = render_to_string('registers/register_email.txt', form.data)
 
             mail.send_mail('RVP Representação - Confirmação de Cadastro',
                            body,

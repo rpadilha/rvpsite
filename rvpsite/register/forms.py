@@ -41,11 +41,9 @@ class RegisterForm(forms.Form):
     zip = forms.CharField(label='CEP')
 
     def clean_city(self):
-        city = self.cleaned_data['city']
-        if city == 'null':
+        if self.cleaned_data['city'] == 'null':
             raise forms.ValidationError("Este campo é obrigatório.")
 
     def clean_state(self):
-        state = self.cleaned_data['state']
-        if state == 'null':
+        if self.cleaned_data['state'] == 'null':
             raise forms.ValidationError("Este campo é obrigatório.")
