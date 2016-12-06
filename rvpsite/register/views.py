@@ -13,7 +13,7 @@ def register(request):
         if form.is_valid():
             body = render_to_string('registers/register_email.html', form.data)
 
-            mail.content_type ='html'
+            mail.IsBodyHtml = True
             mail.send_mail('RVP Representação - Confirmação de Cadastro',
                            body,
                            'rvprepresentacao@gmail.com',
