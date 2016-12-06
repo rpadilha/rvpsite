@@ -1,9 +1,9 @@
 from django import forms
 
-class SubscriptionForm(forms.Form):
+class RegisterForm(forms.Form):
 
     cities = (
-        ('null', 45*'-'),
+        ('null', 35*'-'),
         ('Aperibé','Aperibé'),
         ('Bom Jesus do Itabapoana','Bom Jesus do Itabapoana'),
         ('Cambuci','Cambuci'),
@@ -24,7 +24,7 @@ class SubscriptionForm(forms.Form):
     )
 
     states = (
-        ('null', 45 * '-'),
+        ('null', 35*'-'),
         ('Rio de Janeiro','Rio de Janeiro'),
     )
 
@@ -33,10 +33,19 @@ class SubscriptionForm(forms.Form):
     insc_estadual = forms.CharField(label='Inscrição Estadual')
     phone = forms.CharField(label='Telefone')
     email = forms.EmailField(label='E-mail')
+    contact_person = forms.CharField(label='Pessoa de Contato')
     address = forms.CharField(label='Endereço')
     neighborhood = forms.CharField(label='Bairro')
     city = forms.ChoiceField(choices=cities, label='Cidade')
     state = forms.ChoiceField(choices=states, label='Estado')
     zip = forms.CharField(label='CEP')
-    password = forms.CharField(label='Senha de Acesso')
-    password_confirmation = forms.CharField(label='Confirme sua senha')
+
+    def clean_city(self):
+        city = self.cleaned_data['city']
+        if city == 'null':
+            raise forms.ValidationError("Este campo é obrigatório.")
+
+    def clean_state(self):
+        state = self.cleaned_data['state']
+        if state == 'null':
+            raise forms.ValidationError("Este campo é obrigatório.")
