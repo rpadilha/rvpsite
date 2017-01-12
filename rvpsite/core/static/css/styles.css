@@ -96,8 +96,8 @@ footer {
 		margin: 0 -2px;
 	}
 	.navbar-nav > li > a {
-		padding-left: 35px;
-		padding-right: 35px;
+		padding-left: 25px;
+		padding-right: 25px;
 		border-top: 3px solid #FFF;
 		text-transform: uppercase;
 	}
