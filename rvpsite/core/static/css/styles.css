@@ -22,8 +22,10 @@ header {
 	text-decoration: none;
 }
 .container-carousel{
-    width: 80%;
+    width: 100%;
     margin: auto;
+    padding: 30px 0;
+    background-color: rgb(0,89,177);
 }
 #main-carousel {
     max-width: 768px; /* Deixar sempre setado com o tamanho da figura do slide */
@@ -31,11 +33,36 @@ header {
     margin: auto;
     overflow: hidden;
 }
+#blog-section > h4 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+    color: rgb(0,89,177);
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: solid 1px;
+}
+#blog-data > .col-md-4 {
+    height: 170px;
+    padding: 0 30px;
+    color: rgb(0,89,177);
+}
+#blog-data > .col-md-4 > p > a {
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+    letter-spacing: 2px;
+}
+#blog-data > .col-md-4 > p > a:hover {
+    color: white;
+    background-color: rgb(0,89,177);
+}
 footer {
     background-color: rgb(0,89,177);
     color: white;
     width: 100%;
-    margin: 40px 0 3px 0;
+    margin: 30px 0 0 0;
     padding: 25px 0;
     text-align: left;
 }
@@ -50,7 +77,7 @@ footer {
 
 
 /* Media Queries */
-@media only screen and (max-width: 767px){
+@media only screen and (max-width: 767px){ /* Short Screens */
     .navbar-default {
 		background: none;
 		border: none;
@@ -68,7 +95,12 @@ footer {
     }
     .navbar-nav > li > a {
 		text-transform: uppercase;
+        font-weight: bold;
+        text-align: left;
 	}
+    #blog-data > .col-md-4 {
+        margin-top: 30px;
+    }
     footer {
         font-size: smaller;
         text-align: center;
