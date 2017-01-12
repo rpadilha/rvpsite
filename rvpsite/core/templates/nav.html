@@ -1,16 +1,25 @@
-<header class="header header-inline min-h-3 row desktop-12 container" role="banner">
-<!--
-    <div class="site-logo">
-        <h1><a href="/" rel="home">RVP Representação</a></h1>
-    </div>
--->
-    <nav class="nav-inline" role="navigation">
-        <a href="javascript:void(0);" class="nav-mobile"><i class="fa fa-bars"></i></a>
-        <ul>
-            <li><a data-scroll href="{% url 'home' %}">Contato</a></li>
-            <li><a data-scroll href="{% url 'area' %}">Área de Atendimento</a></li>
-            <li><a data-scroll href="{% url 'representations' %}">Representadas</a></li>
-            <li><a data-scroll href="{% url 'clients' %}">Área de Clientes</a></li>
-        </ul>
-    </nav>
-</header>
+<header id=“header”>
+    <nav id="main-menu" class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href=""><img src="../static/img/logo.png" alt="logo" class="img-responsive"></a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="">Início</a></li>
+                    <li><a href="">Área de Atendimento</a></li>
+                    <li><a href="">Área de Clientes</a></li>
+                    <li><a href="">Blog</a></li>
+                    <li><a href="">Contato</a></li>
+                </ul>
+            </div>
+        </div><!-- end CONTAINER -->
+    </nav><!-- end NAV -->
+</header><!-- end HEADER -->

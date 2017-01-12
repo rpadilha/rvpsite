@@ -15,6 +15,3 @@ def representations(request):
 
 def clients(request):
     return render(request, 'clients.html')
-
-def newsite(request):
-    return render(request, 'index2.html')
