@@ -15,3 +15,9 @@ def representations(request):
 
 def clients(request):
     return render(request, 'clients.html')
+
+def google(request):
+    return render(request, 'googleb38521f7cdc37071.html')
+
+def newsite(request):
+    return render(request, 'index2.html')

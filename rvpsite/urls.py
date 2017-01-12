@@ -9,5 +9,7 @@ urlpatterns = [
     url(r'^area/', rvpsite_views.area, name='area'),
     url(r'^representadas/', rvpsite_views.representations, name='representations'),
     url(r'^clientes/', rvpsite_views.clients, name='clients'),
+    url(r'^google/', rvpsite_views.google, name='google'),
+    url(r'^v77/', rvpsite_views.newsite, name='newsite'),
     url(r'^cadastro/',register),
 ]
