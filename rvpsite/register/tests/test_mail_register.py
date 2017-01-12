@@ -31,14 +31,10 @@ class RegisterPostValid(TestCase):
     def test_subscription_mail_body(self):
         """E-mail body should have subscriptor info"""
         email = mail.outbox[0]
-        self.assertIn('Jovel Materiais de Construção', email.body)
-        self.assertIn('01234567890123', email.body)
-        self.assertIn('012345678', email.body)
-        self.assertIn('21988010276', email.body)
-        self.assertIn('tonare@gmail.com', email.body)
-        self.assertIn('Marcos Roosevelt', email.body)
-        self.assertIn('Avenida Presidente Dutra, 359', email.body)
-        self.assertIn('Cidade Nova', email.body)
-        self.assertIn('Itaperuna', email.body)
-        self.assertIn('Rio de Janeiro', email.body)
-        self.assertIn('28300-000', email.body)
+        contents = [ 'Jovel Materiais de Construção', '01234567890123', '012345678', '21988010276',
+                     'tonare@gmail.com', 'Marcos Roosevelt', 'Avenida Presidente Dutra, 359',
+                     'Cidade Nova', 'Itaperuna', 'Rio de Janeiro', '28300-000']
+
+        for content in contents:
+            with self.subTest():
+                self.assertIn(content, email.body)
