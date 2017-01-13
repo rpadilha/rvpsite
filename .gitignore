@@ -8,3 +8,4 @@ __pycache__
 DNS.docx
 site_layout
 rvpsite/core/static/media
+staticfiles
