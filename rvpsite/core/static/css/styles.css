@@ -193,46 +193,6 @@ footer {
     }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-    .navbar {
-        margin-bottom: 40px;
-    }
-    .navbar-header {
-        float: none;
-    }
-    .navbar-default {
-        background: none;
-        border: none;
-    }
-    .navbar-nav {
-        float: none;
-    }
-    .navbar-nav > li {
-        float: none;
-        display: inline-block;
-        border-top: 1px solid rgb(0, 89, 177);
-        margin: 0 -2px;
-    }
-    .navbar-nav > li > a {
-        padding-left: 25px;
-        padding-right: 25px;
-        border-top: 3px solid #FFF;
-        text-transform: uppercase;
-        font-size: 68%;
-        font-weight: bold;
-    }
-    .navbar-default .navbar-nav > li > a:hover {
-        color: rgb(0, 89, 177);
-        background: none;
-        border-top: 3px solid rgb(0, 89, 177);
-    }
-    footer {
-        font-size: 90%;
-    }
-    #representadas > .col-md-4 {
-        margin-bottom: 80px;
-    }
-}
 
 @media only screen and (min-width : 870px) and (max-width: 975px) {
     .navbar {
