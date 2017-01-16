@@ -1,29 +1,43 @@
 {% extends 'base.html' %}
 
+{% block canonical %}
+    <link rel="canonical" href="http://www.rvprepresentacao.com.br/area">
+{% endblock %}
+
+{% block title %}Área de Atendimento - RVP Representação{% endblock %}
+
 {% block content %}
-<!-- REGIONAL AREA -->
-<section id="area">
-    <div class="sponsors text-align-center row desktop-12 padding-top-2 min-h-14 container">
-        <i class="fa fa-5x fa-car" style="color:#3498db"></i>
-        <h2>Área de Atendimento</h2>
-        <h3>Norte e Noroeste Fluminense - RJ</h3>
-        <div class="desktop-4"><h5>Aperibé</h5></div>
-        <div class="desktop-4"><h5>Bom Jesus do Itabapoana</h5></div>
-        <div class="desktop-4"><h5>Cambuci</h5></div>
-        <div class="desktop-4"><h5>Campos dos Goytacazes</h5></div>
-        <div class="desktop-4"><h5>Cardoso Moreira</h5></div>
-        <div class="desktop-4"><h5>Itaocara</h5></div>
-        <div class="desktop-4"><h5>Itaperuna</h5></div>
-        <div class="desktop-4"><h5>Italva</h5></div>
-        <div class="desktop-4"><h5>Laje do Muriaé</h5></div>
-        <div class="desktop-4"><h5>Miracema</h5></div>
-        <div class="desktop-4"><h5>Natividade</h5></div>
-        <div class="desktop-4"><h5>Porciúncula</h5></div>
-        <div class="desktop-4"><h5>Santo Antonio de Pádua</h5></div>
-        <div class="desktop-4"><h5>São Fidélis</h5></div>
-        <div class="desktop-4"><h5>São Francisco do Itabapoana</h5></div>
-        <div class="desktop-4"><h5>São João da Barra</h5></div>
-        <div class="desktop-4"><h5>Varre-Sai</h5></div>
+<div id="area" class="container">
+    <h2>Norte e Noroeste Fluminense - RJ</h2>
+    <br><br>
+    <div class="col-md-offset-2 col-md-4">
+        <table  id="area-table-1" class="table table-striped">
+            <tbody>
+                <tr><td><h4>Aperibé</h4></td></tr>
+                <tr><td><h4>Bom Jesus do Itabapoana</h4></td></tr>
+                <tr><td><h4>Cambuci</h4></td></tr>
+                <tr><td><h4>Campos dos Goytacazes</h4></td></tr>
+                <tr><td><h4>Cardoso Moreira</h4></td></tr>
+                <tr><td><h4>Itaocara</h4></td></tr>
+                <tr><td><h4>Itaperuna</h4></td></tr>
+                <tr><td><h4>Italva</h4></td></tr>
+                <tr><td><h4>Laje do Muriaé</h4></td></tr>
+            </tbody>
+        </table>
     </div>
-</section>
+    <div class="col-md-4">
+        <table id="area-table-2" class="table table-striped">
+            <tbody>
+                <tr><td><h4>Miracema</h4></td></tr>
+                <tr><td><h4>Natividade</h4></td></tr>
+                <tr><td><h4>Porciúncula</h4></td></tr>
+                <tr><td><h4>Santo Antonio de Pádua</h4></td></tr>
+                <tr><td><h4>São Fidélis</h4></td></tr>
+                <tr><td><h4>São Francisco do Itabapoana</h4></td></tr>
+                <tr><td><h4>São João da Barra</h4></td></tr>
+                <tr><td><h4>Varre-Sai</h4></td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}

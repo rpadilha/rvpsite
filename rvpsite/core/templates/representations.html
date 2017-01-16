@@ -1,30 +1,37 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block canonical %}
+    <link rel="canonical" href="http://www.rvprepresentacao.com.br/representadas">
+{% endblock %}
+
+{% block title %}Representadas - RVP Representação{% endblock %}
+
 {% block content %}
-<!-- COMPANIES -->
-<section>
-    <div class="sponsors text-align-center row desktop-12 min-h-28 padding-top-2 padding-bottom-1 container">
-        <i class="fa fa-5x fa-suitcase" style="color:#3498db"></i>
-        <h2>Representadas</h2>
-
-        <h3>Hidráulica, Acessórios e Conexões</h3>
-        <div class="sponsor-slider min-h-4">
-            <img class="img-responsive" src="{% static 'img/durin.png' %}" alt="Durin">
+<div class="container">
+    <h2 class="text-center">Representadas</h2>
+    <br><br><br><br>
+    <div id="representadas" class="row">
+        <div class="col-md-4">
+            <!--<h3>Hidráulica, Acessórios e Conexões</h3>-->
+            <img class="img-responsive img-rounded" src="{% static 'img/durin.png' %}" alt="Durin">
         </div>
-
-        <h3>Ferramentas</h3>
-        <div class="sponsor-slider min-h-3">
-            <img class="img-responsive" src="{% static 'img/gamma.png' %}" alt="Gamma">
+        <div class="col-md-4">
+            <!--<h3>Ferramentas</h3>-->
+            <img class="img-responsive img-rounded" src="{% static 'img/gamma_logo.png' %}" alt="Gamma">
         </div>
-
-        <h3>Elétrica</h3>
-        <div class="sponsor-slider min-h-4 margin-bottom-2">
-            <img class="img-responsive" src="{% static 'img/dicompel.png' %}" alt="Dicompel">
-        </div><br>
-
-        <h3>Quer sua marca representada por nós?</h3>
-        <a class="btn-basic btn-blue" href="mailto:rvprepresentacao@gmail.com?Subject=Nova Representação">Contato</a>
+        <div class="col-md-4">
+            <!--<h3>Metais</h3>-->
+            <img class="img-responsive img-rounded img-center" src="{% static 'img/klmx.png' %}" alt="KLMx">
+        </div>
     </div>
-</section>
+
+    <br><br><br><br>
+
+    <div id="nova-representacao" class="row">
+        <h3>Quer sua marca representada por nós?</h3>
+        <br>
+        <a href="mailto:rvprepresentacao@gmail.com?Subject=Nova Representação" class="btn-lg btn-primary" role="button" >Vamos conversar!</a>
+    </div>
+</div>
 {% endblock %}

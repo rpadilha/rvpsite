@@ -5,7 +5,8 @@ body,
 header {
 	position: relative;
 }
-#main-menu {
+#main-menu,
+#area h2 {
 	text-align: center;
 }
 .navbar-brand {
@@ -143,5 +144,9 @@ footer {
 	}
     #right-footer {
     text-align: right;
+    }
+    .glyphicon-globe {
+        text-align: center;
+        font-size: large;
     }
 }

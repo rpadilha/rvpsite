@@ -1,14 +1,24 @@
 {% extends 'base.html' %}
 
+{% block title %}Área de Clientes - RVP Representação{% endblock %}
+
 {% block content %}
-<!-- REGISTER -->
-<section id="register">
-    <div class="register row">
-        <div class="text-align-center row desktop-12 min-h-10 padding-top-2 container">
-            <i class="fa fa-5x fa-ticket" style="color:#3498db"></i>
-            <h2>Área de Clientes</h2>
-            <h3>Em breve!</h3>
+<div class="container">
+    <h2 class="text-center">Área de Clientes</h2>
+    <br><br>
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                <span class="sr-only">40% Complete</span>
+              </div>
+            </div>
         </div>
     </div>
-</section>
+    <div class="row">
+        <div id="soon" class="col-md-offset-4 col-md-4">
+            Em breve
+        </div>
+    </div>
+</div>
 {% endblock %}
