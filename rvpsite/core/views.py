@@ -19,3 +19,6 @@ def clients(request):
 
 def blog(request):
     return render(request, 'blog.html')
+
+def contact(request):
+    return render(request, 'contact.html')

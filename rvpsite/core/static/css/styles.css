@@ -155,7 +155,16 @@ footer {
     text-align: center;
     font-family: 'Orbitron', sans-serif;
 }
-
+#contact-panel {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    box-shadow: 5px 0 30px rgb(0,89,177);
+}
+#contact-panel > h1 {
+    color: white;
+    font-weight: bold;
+    text-shadow: 5px 0 30px rgb(0,89,177), 5px 0 30px rgb(0,89,177);
+}
 
 /* Media Queries */
 @media only screen and (min-width : 975px) {
@@ -191,7 +200,7 @@ footer {
         border-top: 3px solid rgb(0,89,177);
     }
     #right-footer {
-    text-align: right;
+        text-align: right;
     }
 }
 
@@ -310,4 +319,9 @@ footer {
     }
 }
 
+@media only screen and (max-width : 400px) {
+    #contact-panel > h1.email {
+        font-size: 32px;
+    }
+}
 
