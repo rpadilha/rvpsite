@@ -165,7 +165,7 @@ footer {
 #contact-panel > h1 {
     color: rgb(255,255,255);
     font-weight: bold;
-    text-shadow: 5px 0 30px rgb(0,89,177);
+    text-shadow: 5px 0 30px rgb(0,89,177), 5px 0 30px rgb(0,89,177);
 }
 
 /* Media Queries */
@@ -322,8 +322,10 @@ footer {
 }
 
 @media only screen and (max-width : 400px) {
-    #contact-panel > h1.email {
-        color: white;
+    #contact-panel > h1 {
+        color: rgb(255,255,255);
+        font-weight: bold;
+        text-shadow: 5px 0 30px rgb(0,89,177), 5px 0 30px rgb(0,89,177);
         font-size: 32px;
     }
 }
