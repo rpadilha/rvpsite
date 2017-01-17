@@ -163,10 +163,13 @@ footer {
     box-shadow: 5px 0 30px rgb(0,89,177);
 }
 #contact-panel > h1 {
-    color: rgb(255,255,255);
+    color: white;
     font-weight: bold;
     text-shadow: 5px 0 30px rgb(0,89,177), 5px 0 30px rgb(0,89,177);
     font-size: 32px;
+}
+#contact-panel > h1.phone {
+    color: white;
 }
 
 /* Media Queries */
