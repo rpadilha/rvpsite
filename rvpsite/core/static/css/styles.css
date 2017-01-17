@@ -1,6 +1,8 @@
 body
 {
     color: rgb(0,89,177);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
 }
 .container-fluid > .collapse > .nav > li > a,
 footer{
@@ -161,6 +163,9 @@ footer {
     box-shadow: 5px 0 30px rgb(0,89,177);
 }
 #contact-panel > h1 {
+    -webkit-text-fill-color: rgba(255, 255, 255, 1);
+    -webkit-opacity: 1;
+    color: rgba(255, 255, 255, 1);
     color: white;
     font-weight: bold;
     text-shadow: 5px 0 30px rgb(0,89,177), 5px 0 30px rgb(0,89,177);
