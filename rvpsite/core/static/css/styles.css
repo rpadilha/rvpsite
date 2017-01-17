@@ -323,6 +323,7 @@ footer {
 
 @media only screen and (max-width : 400px) {
     #contact-panel > h1.email {
+        color: white;
         font-size: 32px;
     }
 }
