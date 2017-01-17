@@ -163,12 +163,9 @@ footer {
     box-shadow: 5px 0 30px rgb(0,89,177);
 }
 #contact-panel > h1 {
-    -webkit-text-fill-color: rgba(255, 255, 255, 1);
-    -webkit-opacity: 1;
-    color: rgba(255, 255, 255, 1);
-    color: white;
+    color: rgb(255,255,255);
     font-weight: bold;
-    text-shadow: 5px 0 30px rgb(0,89,177), 5px 0 30px rgb(0,89,177);
+    text-shadow: 5px 0 30px rgb(0,89,177);
 }
 
 /* Media Queries */
