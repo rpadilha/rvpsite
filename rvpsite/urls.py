@@ -13,6 +13,6 @@ urlpatterns = [
     url(r'^clientes/', rvpsite_views.clients, name='clients'),
     url(r'^blog/', rvpsite_views.blog, name='blog'),
     url(r'^cadastro/', register),
-    url(r'^robots.txt', lambda x: HttpResponse("User-Agent: *\nDisallow: /clientes",
+    url(r'^robots.txt', lambda x: HttpResponse("User-Agent: *\nDisallow: /clientes/",
                                                content_type="text/plain"), name="robots_file"),
 ]
