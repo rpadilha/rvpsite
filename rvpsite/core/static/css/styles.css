@@ -166,6 +166,7 @@ footer {
     color: rgb(255,255,255);
     font-weight: bold;
     text-shadow: 5px 0 30px rgb(0,89,177), 5px 0 30px rgb(0,89,177);
+    font-size: 32px;
 }
 
 /* Media Queries */
@@ -320,13 +321,3 @@ footer {
         margin-bottom: 80px;
     }
 }
-
-@media only screen and (max-width : 400px) {
-    #contact-panel > h1 {
-        color: rgb(255,255,255);
-        font-weight: bold;
-        text-shadow: 5px 0 30px rgb(0,89,177), 5px 0 30px rgb(0,89,177);
-        font-size: 32px;
-    }
-}
-
