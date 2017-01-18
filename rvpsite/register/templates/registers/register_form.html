@@ -1,87 +1,0 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<!-- SUBSCRIPTION -->
-    <section>
-        <div class="content text-align-center row desktop-12 padding-top-2 min-h-14 container">
-            <i class="fa fa-5x fa-ticket" style="color:#3498db"></i>
-            <h3>CADASTRAR EMPRESA</h3>
-            <h6>
-                Nesta página, você poderá realizar o cadastro de sua empresa.<br>
-                Desta forma, você estará apto à realização de pedidos on-line!<br>
-                Uma maneira simples e ágil de solicitar seus produtos!
-            </h6>
-            <br><br><br>
-            <div class="content row padding-top-2 padding-bottom-3 desktop-12 container">
-            <div class="desktop-6 text-align-left">
-                {% if messages %}
-                    {% for message in messages %}
-                        <div class="alert success">
-                            <p>{{ message }}</p>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-                <form action="." method="post">
-                    {% csrf_token %}
-                    <div class="form-row label-block input-text">  
-                        <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label> 
-                        {{ form.name.errors }} 
-                        {{ form.name }} 
-                    </div>
-                     <div class="form-row label-block input-text">  
-                        <label for="{{ form.cnpj.id_for_label }}">{{ form.cnpj.label }}</label> 
-                        {{ form.cnpj.errors }} 
-                        {{ form.cnpj }} 
-                    </div> 
-                    <div class="form-row label-block input-text">  
-                        <label for="{{ form.insc_estadual.id_for_label }}">{{ form.insc_estadual.label }}</label> 
-                        {{ form.insc_estadual.errors }} 
-                        {{ form.insc_estadual }} 
-                    </div> 
-                    <div class="form-row label-block input-text">  
-                        <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }}</label> 
-                        {{ form.phone.errors }} 
-                        {{ form.phone }} 
-                    </div>
-                     <div class="form-row label-block input-text">  
-                        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label> 
-                        {{ form.email.errors }} 
-                        {{ form.email }}
-                     </div>
-                     <div class="form-row label-block input-text">  
-                        <label for="{{ form.contact_person.id_for_label }}">{{ form.contact_person.label }}</label> 
-                        {{ form.contact_person.errors }} 
-                        {{ form.contact_person }}
-                     </div>
-                     <div class="form-row label-block input-text">  
-                        <label for="{{ form.address.id_for_label }}">{{ form.address.label }}</label> 
-                        {{ form.address.errors }} 
-                        {{ form.address }}
-                     </div>
-                     <div class="form-row label-block input-text">  
-                        <label for="{{ form.neighborhood.id_for_label }}">{{ form.neighborhood.label }}</label> 
-                        {{ form.neighborhood.errors }} 
-                        {{ form.neighborhood }}
-                     </div>
-                     <div class="form-row label-block input-text">  
-                        <label for="{{ form.city.id_for_label }}">{{ form.city.label }}</label> 
-                        {{ form.city.errors }} 
-                        {{ form.city }} 
-                    </div>
-                     <div class="form-row label-block input-text">  
-                        <label for="{{ form.state.id_for_label }}">{{ form.state.label }}</label> 
-                        {{ form.state.errors }} 
-                        {{ form.state }} 
-                    </div> 
-                    <div class="form-row label-block input-text">  
-                        <label for="{{ form.zip.id_for_label }}">{{ form.zip.label }}</label> 
-                        {{ form.zip.errors }} 
-                        {{ form.zip }}
-                     </div>
-                     <p class="btn-row"><input type="submit" value="Cadastrar"/> </p>
-                </form>
-            </div>
-            </div>
-        </div>
-    </section>
-{% endblock %}
