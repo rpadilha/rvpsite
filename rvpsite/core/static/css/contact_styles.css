@@ -14,7 +14,7 @@
     text-align: justify;
     margin: 30px 0;
 }
-#contact_form > .form-panel {
+.form-panel {
     padding: 20px;
     margin-bottom: 10px;
     box-shadow: 5px 5px 20px rgb(0,89,177);
