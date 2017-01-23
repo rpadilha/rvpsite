@@ -1,9 +1,8 @@
 from django.conf.urls import url
 from django.contrib import admin
 from django.http import HttpResponse
-
 from rvpsite.core import views as rvpsite_views
-from rvpsite.register.views import register
+from rvpsite.contact.views import contact
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -12,8 +11,7 @@ urlpatterns = [
     url(r'^representadas/', rvpsite_views.representations, name='representations'),
     url(r'^clientes/', rvpsite_views.clients, name='clients'),
     url(r'^noticias/', rvpsite_views.blog, name='blog'),
-    url(r'^contato/', rvpsite_views.contact, name='contato'),
-    url(r'^cadastro/', register),
+    url(r'^contato/', contact, name='contact'),
     url(r'^robots.txt', lambda x: HttpResponse("User-Agent: *\nDisallow: /clientes/",
                                                content_type="text/plain"), name="robots_file"),
 ]

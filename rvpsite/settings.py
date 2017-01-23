@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rvpsite.core',
-    'rvpsite.register',
+    'rvpsite.contact',
 ]
 
 MIDDLEWARE = [

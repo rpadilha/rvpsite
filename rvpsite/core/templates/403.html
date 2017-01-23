@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}<title>403. Proibido</title>{% endblock %}
+
+{% block css %}<link href="{% static 'css/styles.css' %}" rel="stylesheet">{% endblock %}
 
 {% block content %}
     <div class="container">

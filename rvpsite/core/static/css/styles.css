@@ -157,21 +157,6 @@ footer {
     text-align: center;
     font-family: 'Orbitron', sans-serif;
 }
-#contact-panel {
-    font-family: 'Orbitron', sans-serif;
-    text-align: center;
-    box-shadow: 5px 0 30px rgb(0,89,177);
-    color: white;
-}
-#contact-panel > h1 {
-    color: white;
-    font-weight: bold;
-    text-shadow: 5px 0 30px rgb(0,89,177), 5px 0 30px rgb(0,89,177);
-    font-size: 32px;
-}
-#contact-panel > h1.phone {
-    color: inherit;
-}
 
 /* Media Queries */
 @media only screen and (min-width : 975px) {
