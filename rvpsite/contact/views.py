@@ -17,7 +17,7 @@ def contact(request):
                            form.cleaned_data['email'],
                            ['rvprepresentacao@gmail.com'])
 
-            messages.success(request, 'Inscrição realizada com sucesso!')
+            messages.success(request, 'Mensagem enviada com sucesso!')
             return HttpResponseRedirect('/contato/')
 
         else:

@@ -106,4 +106,4 @@ class ContactSuccessMessage(TestCase):
 
     def test_message(self):
         response = self.client.post('/contato/', self.data, follow=True)
-        self.assertContains(response, 'Inscrição realizada com sucesso!')
+        self.assertContains(response, 'Mensagem enviada com sucesso!')
