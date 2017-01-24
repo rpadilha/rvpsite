@@ -36,7 +36,7 @@ class ContactMessageTest(TestCase):
     def test_form_has_fields(self):
         """"Form must have 5 fields """
         form = self.response.context['form']
-        self.assertSequenceEqual(['name', 'email', 'phone', 'msg'], list(form.fields))
+        self.assertSequenceEqual(['name', 'email', 'phone', 'msg', 'ipaddr'], list(form.fields))
 
 
 class ContactMessagePostTest(TestCase):
@@ -46,7 +46,7 @@ class ContactMessagePostTest(TestCase):
         self.response = self.client.post('/contato/', data)
 
     def test_post(self):
-        """Valid POST should redirect to /inscricao/"""
+        """Valid POST should redirect to /contato/"""
         self.assertEqual(302, self.response.status_code)
 
     def test_send_contact_email(self):

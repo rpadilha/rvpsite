@@ -1,8 +1,10 @@
 Ricardo,
+você recebeu uma nova mensagem do IP {{ ipaddr }}, com o seguinte conteúdo:
 
-Quem lhe envia esta mensagem é {{ name }} ({{ phone }} / {{ email }}):
-
-"{{ msg }}""
+Nome: {{ name }}
+Telefone: {{ phone }}
+E-mail: {{ email }}
+Mensagem: {{ msg }}
 
 
 
