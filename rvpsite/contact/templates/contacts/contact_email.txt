@@ -6,6 +6,4 @@ Telefone: {{ phone }}
 E-mail: {{ email }}
 Mensagem: {{ msg }}
 
-
-
 Para respondê-lo, basta clicar em responder, ou se preferir, ligar no telefone informado pelo mesmo.
