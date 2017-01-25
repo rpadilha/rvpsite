@@ -1,6 +1,8 @@
 from django.core import mail
 from django.test import TestCase
 from rvpsite.contact.forms import ContactForm
+from rvpsite.contact.models import Contact
+
 
 class ContactMessageGet(TestCase):
     def setUp(self):
@@ -57,6 +59,9 @@ class ContactMessagePostValid(TestCase):
         """1 email should be sent"""
         self.assertEqual(1, len(mail.outbox))
 
+    def test_save_contact(self):
+        self.assertTrue(Contact.objects.exists())
+
 
 class ContactMessagePostInvalid(TestCase):
     def setUp(self):
@@ -78,6 +83,9 @@ class ContactMessagePostInvalid(TestCase):
         """"Errors should be returned through render return"""
         form = self.response.context['form']
         self.assertTrue(form._errors)
+
+    def test_not_save_subscription(self):
+        self.assertFalse(Contact.objects.exists())
 
 
 class ContactMessageSuccess(TestCase):

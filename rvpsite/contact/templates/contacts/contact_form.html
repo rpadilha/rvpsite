@@ -60,6 +60,7 @@
                 </div>
                 <div class="form-group form-group-lg col-xs-12 col-md-12">
                     <label for="{{ form.msg.id_for_label }}">{{ form.msg.label }}</label>
+                    <span class="label label-warning">limitado a 700 caracteres</span>
                     {{ form.msg.errors }}
                     {{ form.msg | add_attributes:'class:form-control,placeholder:Escreva aqui sua mensagem...' }}
                 </div>

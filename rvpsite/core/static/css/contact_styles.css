@@ -19,3 +19,6 @@
     box-shadow: 5px 5px 20px rgb(0,89,177);
     font-size: 15px;
 }
+#id_msg {
+    resize: none;
+}

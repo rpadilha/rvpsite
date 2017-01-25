@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.template.loader import render_to_string
 from rvpsite.contact.forms import ContactForm
+from rvpsite.contact.models import Contact
 
 
 def contact(request):
@@ -20,6 +21,8 @@ def create(request):
         return render(request, 'contacts/contact_form.html', {'form': form })
 
     _get_ip_address(request, form.cleaned_data)
+
+    Contact.objects.create(**form.cleaned_data)
 
     _send_mail('Nova mensagem do site',
                form.cleaned_data['email'],
