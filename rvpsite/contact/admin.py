@@ -9,7 +9,7 @@ class ContactModelAdmin(admin.ModelAdmin):
     list_filter = ('created_at',)
 
     def sent_today(self, obj):
-        return obj.created_at == now().date()
+        return obj.created_at.date() == now().date()
 
     sent_today.short_description = 'enviada hoje?'
     sent_today.boolean = 'True'
