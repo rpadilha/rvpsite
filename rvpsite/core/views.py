@@ -13,9 +13,5 @@ def representations(request):
     return render(request, 'representations.html')
 
 
-def clients(request):
-    return render(request, 'clients.html')
-
-
 def blog(request):
     return render(request, 'blog.html')

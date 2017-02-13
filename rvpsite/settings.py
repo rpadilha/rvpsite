@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'test_without_migrations',
     'pytz',
     'rvpsite.core',
+    'rvpsite.client',
     'rvpsite.contact.apps.ContactConfig',
 ]
 
