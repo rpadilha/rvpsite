@@ -1,9 +1,9 @@
 Ricardo,
-você recebeu uma nova mensagem do IP {{ ipaddr }}, com o seguinte conteúdo:
+você recebeu uma nova mensagem do IP {{ contact.ipaddr }}, com o seguinte conteúdo:
 
-Nome: {{ name }}
-Telefone: {{ phone }}
-E-mail: {{ email }}
-Mensagem: {{ msg }}
+Nome: {{ contact.name }}
+Telefone: {{ contact.phone }}
+E-mail: {{ contact.email }}
+Mensagem: {{ contact.msg }}
 
 Para respondê-lo, basta clicar em responder, ou se preferir, ligar no telefone informado pelo mesmo.

@@ -23,14 +23,14 @@ def create(request):
     _get_ip_address(request, form.cleaned_data)
 
     #contact = Contact.objects.create(**form.cleaned_data)
-    form.save()
+    contact = form.save()
 
     _send_mail('Nova mensagem do site',
-               form.email,
+               contact.email,
                'rvprepresentacao@gmail.com',
                #'tonare@gmail.com',
                'contacts/contact_email.txt',
-               form.cleaned_data)
+               {'contact':contact})
 
     messages.success(request, 'Mensagem enviada com sucesso!')
     return HttpResponseRedirect('/contato/')
