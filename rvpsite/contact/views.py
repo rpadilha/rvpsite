@@ -18,14 +18,15 @@ def create(request):
     form = ContactForm(request.POST)
 
     if not form.is_valid():
-        return render(request, 'contacts/contact_form.html', {'form': form })
+        return render(request, 'contacts/contact_form.html', {'form': form})
 
     _get_ip_address(request, form.cleaned_data)
 
-    Contact.objects.create(**form.cleaned_data)
+    #contact = Contact.objects.create(**form.cleaned_data)
+    form.save()
 
     _send_mail('Nova mensagem do site',
-               form.cleaned_data['email'],
+               form.email,
                'rvprepresentacao@gmail.com',
                #'tonare@gmail.com',
                'contacts/contact_email.txt',

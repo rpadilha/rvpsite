@@ -28,7 +28,7 @@ class ContactEmailValid(TestCase):
     def test_contact_mail_body(self):
         """E-mail body should msg info"""
         contents = ['Renato Padilha', 'tonare@gmail.com', '21988010276',
-                    'Como faço para realizar pedidos fora do horário comercial?']
+                    'como faço para realizar pedidos fora do horário comercial?']
 
         for content in contents:
             with self.subTest():

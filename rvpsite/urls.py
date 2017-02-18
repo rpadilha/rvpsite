@@ -11,7 +11,7 @@ urlpatterns = [
     url(r'^area/', rvpsite_views.area, name='area'),
     url(r'^representadas/', rvpsite_views.representations, name='representations'),
     url(r'^clientes/', clients, name='clients'),
-    url(r'^clientes_novo/', clients_tmp, name='clients_tmp'),
+    url(r'^clientes_novo/', clients_tmp, name='clients_novo'),
     url(r'^noticias/', rvpsite_views.blog, name='blog'),
     url(r'^contato/', contact, name='contact'),
     url(r'^robots.txt', lambda x: HttpResponse("User-Agent: *\nDisallow: /clientes/",

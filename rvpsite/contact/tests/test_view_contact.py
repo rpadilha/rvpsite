@@ -39,11 +39,6 @@ class ContactMessageGet(TestCase):
         form = self.response.context['form']
         self.assertIsInstance(form, ContactForm)
 
-    def test_form_has_fields(self):
-        """"Form must have 5 fields """
-        form = self.response.context['form']
-        self.assertSequenceEqual(['name', 'email', 'phone', 'msg', 'ipaddr'], list(form.fields))
-
 
 class ContactMessagePostValid(TestCase):
     def setUp(self):
