@@ -4,8 +4,8 @@ from django.test import TestCase
 
 class ContactEmailValid(TestCase):
     def setUp(self):
-        data = dict(name='Renato Padilha', email='tonare@gmail.com',
-                    phone='21988010276', msg='Como faço para realizar pedidos fora do horário comercial?')
+        data = dict(name='Renato Padilha', email='tonare@gmail.com', phone='21988010276',
+                    msg='Como faço para realizar pedidos fora do horário comercial?', ipaddr='127.0.0.1')
         self.response = self.client.post('/contato/', data)
         self.email = mail.outbox[0]
 

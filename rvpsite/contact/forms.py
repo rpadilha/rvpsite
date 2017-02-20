@@ -1,10 +1,9 @@
 from django import forms
+from django.contrib import admin
 from rvpsite.contact.models import Contact
 
 
 class ContactForm(forms.ModelForm):
-    msg = forms.CharField(label='Mensagem', max_length=700, widget=forms.Textarea(attrs={'rows': 8}))
-
     class Meta:
         model = Contact
         fields = ['name', 'email', 'phone', 'msg', 'ipaddr']

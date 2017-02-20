@@ -42,8 +42,8 @@ class ContactMessageGet(TestCase):
 
 class ContactMessagePostValid(TestCase):
     def setUp(self):
-        data = dict(name='Renato Padilha', email='tonare@gmail.com',
-                    phone='21988010276', msg='Como faço para realizar pedidos fora do horário comercial?')
+        data = dict(name='Renato Padilha', email='tonare@gmail.com', phone='21988010276',
+                    msg='Como faço para realizar pedidos fora do horário comercial?', ipaddr='127.0.0.1')
         self.response = self.client.post('/contato/', data)
 
     def test_post(self):
@@ -85,8 +85,8 @@ class ContactMessagePostInvalid(TestCase):
 
 class ContactMessageSuccess(TestCase):
     def setUp(self):
-        self.data = dict(name='Renato Padilha', email='tonare@gmail.com',
-                    phone='21988010276', msg='Como faço para realizar pedidos fora do horário comercial?')
+        self.data = dict(name='Renato Padilha', email='tonare@gmail.com', phone='21988010276',
+                    msg='Como faço para realizar pedidos fora do horário comercial?', ipaddr='127.0.0.1')
 
     def test_message(self):
         response = self.client.post('/contato/', self.data, follow=True)
