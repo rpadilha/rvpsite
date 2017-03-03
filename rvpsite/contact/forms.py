@@ -1,5 +1,4 @@
 from django import forms
-from django.contrib import admin
 from rvpsite.contact.models import Contact
 
 
