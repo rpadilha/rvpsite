@@ -39,18 +39,12 @@
         </div>
 
         <div id="blog-data" class="row">
-            <div class="col-xs-12 col-md-4">
-                <h4>Promoção Gamma Ferramentas</h4>
-                <p class="text-justify">Corra: esta promoção é valida até 31/03/2017 ou enquanto durarem os estoques!! <a href="noticias/#promo-gamma-mar-17">leia mais...</a></p>
-            </div>
-            <div class="col-xs-12 col-md-4">
-                <h4>Promoção Durín</h4>
-                <p class="text-justify">Corra: esta promoção é valida até 28/02/2017 ou enquanto durarem os estoques!! <a href="noticias/#promo-durin-fev-17">leia mais...</a></p>
-            </div>
-            <div class="col-xs-12 col-md-4">
-                <h4>Boas vindas</h4>
-                <p class="text-justify">Este site tem por objetivo melhorar ainda mais o atendimento aos clientes, nossa obsessão! <a href="noticias/#boas-vindas">leia mais...</a></p>
-            </div>
+            {% for blog in blog_preview %}
+                <div class="col-xs-12 col-md-4">
+                    <h4 class="text-justify"><a href="noticias/{{ blog.slug }}">{{ blog.title }}</a></h4>
+                    <p class="text-justify">{{ blog.preview }}<a href="noticias/{{ blog.slug }}"> ...leia mais</a></p>
+                </div>
+            {% endfor %}
         </div><!-- end BLOG -->
     </div>
 {% endblock %}

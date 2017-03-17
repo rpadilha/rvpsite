@@ -6,4 +6,4 @@ from django.apps import AppConfig
 ## PARA: 'rvpsite.contact.apps.ContactConfig'
 class ContactConfig(AppConfig):
     name = 'rvpsite.contact'
-    verbose_name = 'mensagens recebidas de usuários'
+    verbose_name = 'MENSAGENS RECEBIDAS DE USUÁRIOS'

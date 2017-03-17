@@ -1,12 +1,13 @@
 from django.core import mail
 from django.test import TestCase
+from django.shortcuts import resolve_url as r
 from rvpsite.contact.forms import ContactForm
 from rvpsite.contact.models import Contact
 
 
 class ContactMessageGet(TestCase):
     def setUp(self):
-        self.response = self.client.get('/contato/')
+        self.response = self.client.get(r('contact'))
 
     def test_get(self):
         """GET /contato/ must return status code 200"""

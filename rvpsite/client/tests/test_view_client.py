@@ -1,10 +1,11 @@
 from django.test import TestCase
+from django.shortcuts import resolve_url as r
 from rvpsite.client.forms import LoginForm
 
 
 class ClientGet(TestCase):
     def setUp(self):
-        self.response = self.client.get('/clientes_novo/')
+        self.response = self.client.get(r('new_clients'))
 
     def test_get(self):
         """GET /clientes/ must return status code 200"""

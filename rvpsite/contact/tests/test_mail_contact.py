@@ -1,12 +1,13 @@
 from django.core import mail
 from django.test import TestCase
+from django.shortcuts import resolve_url as r
 
 
 class ContactEmailValid(TestCase):
     def setUp(self):
         data = dict(name='Renato Padilha', email='tonare@gmail.com', phone='21988010276',
                     msg='Como faço para realizar pedidos fora do horário comercial?', ipaddr='127.0.0.1')
-        self.response = self.client.post('/contato/', data)
+        self.response = self.client.post(r('contact'), data)
         self.email = mail.outbox[0]
 
     def test_contact_mail_subject(self):

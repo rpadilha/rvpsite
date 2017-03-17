@@ -29,9 +29,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'test_without_migrations',
     'pytz',
+    's3direct',
     'rvpsite.core',
     'rvpsite.client',
     'rvpsite.contact.apps.ContactConfig',
+    'rvpsite.blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
@@ -99,6 +101,8 @@ LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'America/Sao_Paulo'
 
+DATE_INPUT_FORMAT = '%d/%m/%y'
+
 USE_I18N = True
 
 USE_L10N = True
@@ -120,3 +124,17 @@ EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
+
+# Amazon S3 Configuration
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+S3DIRECT_REGION = config('S3DIRECT_REGION')
+S3DIRECT_DESTINATIONS = {
+    'AmazonS3': {
+        'key': 'blog',
+        'auth': lambda u: u.is_staff, # Default allow anybody to upload
+        'allowed': ['image/jpeg', 'image/png'], # Default allow all mime types
+    }
+}

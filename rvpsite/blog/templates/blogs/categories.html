@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block canonical %}
+    <link rel="canonical" href="http://www.rvprepresentacao.com.br/noticias/">
+{% endblock %}
+
+{% block title %}Notícias - RVP Representação{% endblock %}
+
+{% block css %}<link href="{% static 'css/styles.css' %}" rel="stylesheet">{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-md-9 col-sm-9 blog-main">
+            {% for blog in categorized_blogs %}
+                <div class="blog-post">
+                    <h2 class="blog-post-title"><a href="/noticias/{{ blog.slug }}">{{ blog.title }}</a></h2>
+                    <p class="blog-post-meta">{{ blog.created_at }} - <a href="mailto:rvprepresentacao@gmail.com">Equipe RVP Representação</a></p>
+
+                    <br><br>
+
+                    {% for content in blog.contents_set.all %}
+                        {% if not content.inverse %}
+                            {% if content.text != '' %}
+                                <p class="text-justify">{{ content.text | linebreaksbr }}</p>
+                                <br><br>
+                            {% endif %}
+                            {% if content.picture != '' %}
+                                <img class="blog-img img-responsive" src="{{ content.picture }}" alt="{{ blog.title }}">
+                                <br><br>
+                            {% endif %}
+                        {% else %}
+                            {% if content.picture != '' %}
+                                <img class="blog-img img-responsive" src="{{ content.picture }}" alt="{{ blog.title }}">
+                                <br><br>
+                            {% endif %}
+                            {% if content.text != '' %}
+                                <p class="text-justify">{{ content.text | linebreaksbr }}</p>
+                                <br><br>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </div><!-- /.blog-post -->
+            {% endfor %}
+            {% if stats.previous == True or stats.next == True %}
+                <div class="blog-link-buttons">
+                    {% if stats.previous %}
+                        <a href="{{ stats.previous_link }}"><img id="blog-prev_button" src="{% static 'img/previous.png' %}" alt="página anterior" align="center"></a>
+                    {% endif %}
+                    <h6 align="center">página {{ stats.actual_page }} de {{ stats.total_pages }}</h6>
+                    {% if stats.next %}
+                        <a href="{{ stats.next_link }}"><img id="blog-next_button" src="{% static 'img/next.png' %}" alt="próxima página" align="center"></a>
+                    {% endif %}
+                    <br><br>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="col-md-2 col-md-offset-1 col-sm-3 blog-sidebar">
+            <div data-spy="affix" data-offset-top="300" class="sidebar-module">
+                <h4><u>CATEGORIAS</u></h4>
+                <ol class="list-unstyled">
+                    <li><a href="/noticias/"><span class="glyphicon glyphicon-menu-right"></span> Todas</a></li>
+                    <br>
+                    <li><a href="/noticias/catalogos/"><span class="glyphicon glyphicon-menu-right"></span> Catálogos</a></li>
+                    <li><a href="/noticias/eventos/"><span class="glyphicon glyphicon-menu-right"></span> Eventos</a></li>
+                    <li><a href="/noticias/novidades/"><span class="glyphicon glyphicon-menu-right"></span> Novidades</a></li>
+                    <li><a href="/noticias/promocoes/"><span class="glyphicon glyphicon-menu-right"></span> Promoções</a></li>
+                    <li><a href="/noticias/outros/"><span class="glyphicon glyphicon-menu-right"></span> Outros</a></li>
+                </ol>
+            </div>
+        </div><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+{% endblock %}
