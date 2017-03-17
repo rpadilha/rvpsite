@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from math import ceil
 from rvpsite.blog.models import Blogs
@@ -7,6 +8,7 @@ from .forms import S3DirectUploadForm
 
 def blog(request, category, page):
     if request.method == 'POST':
+        # Será usando para processar a pesquisa por notícias
         pass
     elif request.method == 'GET':
         # IF CATEGORY está entre ['catalogos', 'eventos', 'novidades', 'promocoes', 'outros', None]
@@ -23,16 +25,15 @@ def blog(request, category, page):
             return showEspecificBlog(request, category)
 
 
+def one_blog(request):
+    return HttpResponse
+
 #######################
 ## Support Functions ##
 #######################
 def showEspecificBlog(request, category):
     blog = get_object_or_404(Blogs.objects.prefetch_related('contents_set').filter(publish=True), slug=category)
     return render(request, 'blogs/blog.html', {'blog': blog})
-
-
-def showOldBlogPage(request, category, page):
-    pass
 
 
 def showFullBlogPage(request, category, page):

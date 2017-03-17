@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.http import HttpResponse
 from rvpsite.core import views as rvpsite_views
 from rvpsite.contact.views import contact
-from rvpsite.blog.views import blog
+from rvpsite.blog.views import blog, one_blog
 from rvpsite.client.views import clients, clients_tmp
 
 urlpatterns = [
