@@ -10,7 +10,5 @@ site_layout
 rvpsite/core/static/media
 staticfiles
 tmp
-blog.json
-content.json
 blogs_main.json
 
