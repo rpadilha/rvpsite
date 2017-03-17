@@ -8,4 +8,4 @@ psycopg2==2.6.1
 django-test-without-migrations==0.4
 pytz
 django-extensions==1.7.4
-s3direct
+s3direct==0.4.9
