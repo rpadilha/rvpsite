@@ -17,6 +17,6 @@ urlpatterns = [
     url(r'^noticia/(?P<slug>[\w-]*)/', one_blog, name='one_blog'),
     url(r'^s3direct/', include('s3direct.urls')),
     url(r'^contato/$', contact, name='contact'),
-    url(r'^robots.txt', lambda x: HttpResponse("User-Agent: *\nDisallow: /clientes/\nDisallow: /clientes_novo/",
+    url(r'^robots.txt', lambda x: HttpResponse("User-Agent: *\nDisallow: /clientes/\nDisallow: /clientes_novo/\nDisallow: /noticia/",
                                                content_type="text/plain"), name="robots_file"),
 ]
