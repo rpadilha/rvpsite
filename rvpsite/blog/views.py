@@ -59,7 +59,7 @@ def showFullBlogPage(request, category, page):
 
 
 def get_blog_stats(category, blogs, page):
-    stats = {'total': blogs, 'actual_page': page, 'total_pages': ceil(blogs/5)}
+    stats = {'category': category, 'total': blogs, 'actual_page': page, 'total_pages': ceil(blogs/5)}
 
     if page == 1:
         stats['previous'] = False
