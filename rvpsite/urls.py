@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^clientes/$', clients, name='clients'),
     url(r'^clientes_novo/$', clients_tmp, name='new_clients'), # desenvolvimento
     url(r'^noticias(?:/(?P<category>[\w-]*)(?:/(?P<page>[\w]*))?)?/$', blog, name='blog'),
+    url(r'^noticia/(?P<slug>[\w-]*)/', one_blog, name='one_blog'),
     url(r'^s3direct/', include('s3direct.urls')),
     url(r'^contato/$', contact, name='contact'),
     url(r'^robots.txt', lambda x: HttpResponse("User-Agent: *\nDisallow: /clientes/\nDisallow: /clientes_novo/",

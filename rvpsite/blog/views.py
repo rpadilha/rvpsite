@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from math import ceil
@@ -11,28 +12,25 @@ def blog(request, category, page):
         # Será usando para processar a pesquisa por notícias
         pass
     elif request.method == 'GET':
-        # IF CATEGORY está entre ['catalogos', 'eventos', 'novidades', 'promocoes', 'outros', None]
+        # IF CATEGORY está entre ['geral', 'catalogos', 'eventos', 'novidades', 'promocoes', 'outros', None]
         # Será mostrada uma página de notícias (independente de categoria)
         if category in ['geral', Blogs.CATALOG, Blogs.EVENT, Blogs.NEWS, Blogs.PROMO, Blogs.OTHER, None]:
             return showFullBlogPage(request, category, page)
 
-        # elif category == 'historico':
-        #     return showOldBlogPage(request, category, page)
-        # # ELSE, tentaremos mostrar um blog específico
-
         # Caso contrário, será mostrada uma notícia específica
         else:
-            return showEspecificBlog(request, category)
+            raise Http404
 
 
-def one_blog(request):
-    return HttpResponse
+def one_blog(request, slug):
+    return showEspecificBlog(request, slug)
+
 
 #######################
 ## Support Functions ##
 #######################
-def showEspecificBlog(request, category):
-    blog = get_object_or_404(Blogs.objects.prefetch_related('contents_set').filter(publish=True), slug=category)
+def showEspecificBlog(request, slug):
+    blog = get_object_or_404(Blogs.objects.prefetch_related('contents_set').filter(publish=True), slug=slug)
     return render(request, 'blogs/blog.html', {'blog': blog})
 
 
@@ -48,7 +46,10 @@ def showFullBlogPage(request, category, page):
     if page is None:
         page = 1
     else:
-        page = int(page)
+        try:
+            page = int(page)
+        except:
+            raise Http404
 
     # Slice no QS para mostrar apenas os 5 registros referentes à página que está sendo acessada
     categorized_blogs = get_list_or_404(qs[5*(page-1):5*page])

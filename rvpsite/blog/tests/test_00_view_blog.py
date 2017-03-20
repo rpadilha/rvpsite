@@ -3,11 +3,8 @@ from django.test import TestCase
 from rvpsite.blog.models import Blogs
 
 
-class BlogGet(TestCase):
+class FullBlogGet(TestCase):
     fixtures = ['blog.json', 'content.json']
-
-    def setUp(self):
-        self.response = self.client.get(r('blog', category='seja-bem-vindo-ao-portal-da-rvp-representacao'))
 
     def test_catalogs_generic(self):
         """GET /noticias/catalogos/ must return status code 200"""
@@ -46,63 +43,12 @@ class BlogGet(TestCase):
         self.response = self.client.get(r('blog'))
         self.assertEqual(200, self.response.status_code)
 
-    def test_template(self):
-        self.assertTemplateUsed(self.response, 'blogs/blog.html')
-
-    def test_specific_blog(self):
-        contents = [
-            'Seja bem-vindo ao portal da RVP Representação',
-            '1 de Outubro de 2016',
-        ]
-
-        for expected in contents:
-            with self.subTest():
-                self.assertContains(self.response, expected)
-
-    def test_context_blog_main(self):
-        """Blog month must be in context"""
-        main = self.response.context['blog']
-        self.assertIsInstance(main, Blogs)
-
-
-class BlogNotFound(TestCase):
-    fixtures = ['blog.json', 'content.json']
-
-    def test_not_found(self):
-        response = self.client.get(r('blog', category='notfound'))
-        self.assertEqual(404, response.status_code)
-
-    def test_publish_is_false(self):
-        """Blog should show 404 when model field PUBLISH == False"""
-        response = self.client.get(r('blog', category='promocao-gamma-ferramentas-fevereiro17'))
-        self.assertEqual(404, response.status_code)
-
-    def test_invalid_pages(self):
-        response = self.client.get('/noticias/asdf/asdf/asdf')
-        self.assertEqual(404, response.status_code)
-
-
-class CategoriesFullBlog(TestCase):
-    fixtures = ['blog.json', 'content.json']
-
     def test_catalog_without_page_parameter(self):
         response = self.client.get(r('blog', category=Blogs.CATALOG))
         contents = [
             'Catálogos',
             'Não existe conteúdo cadastrado para esta categoria',
             '10 de Outubro de 2016',
-        ]
-
-        for expected in contents:
-            with self.subTest():
-                self.assertContains(response, expected)
-
-    def test_catalog_with_page_parameter(self):
-        response = self.client.get(r('blog', category=Blogs.NEWS, page='3'))
-        contents = [
-            'Seja bem-vindo ao portal da RVP Representação!',
-            'seja-bem-vindo-ao-portal-da-rvp-representacao',
-            '1 de Outubro de 2016',
         ]
 
         for expected in contents:
@@ -122,3 +68,69 @@ class CategoriesFullBlog(TestCase):
         content = 'next.png'
 
         self.assertContains(response, content)
+
+
+class FullBlogNotFound(TestCase):
+    fixtures = ['blog.json', 'content.json']
+
+    def test_invalid_category(self):
+        """Blog should return 404 when category is INVALID"""
+        response = self.client.get(r('blog', category='INVALID'))
+        self.assertEqual(404, response.status_code)
+
+    def test_invalid_page(self):
+        """Blog should return 404 when parameter PAGE not found"""
+        response = self.client.get(r('blog', category='geral', page='100'))
+        self.assertEqual(404, response.status_code)
+
+    def test_valid_category_invalid_page(self):
+        """Blog should return 404 when category is INVALID"""
+        response = self.client.get(r('blog', category=Blogs.NEWS, page='oitenta'))
+        self.assertEqual(404, response.status_code)
+
+    def test_invalid_url(self):
+        response = self.client.get('/noticias/asdf/asdf/')
+        self.assertEqual(404, response.status_code)
+
+
+class SpecificBlogGet(TestCase):
+    fixtures = ['blog.json', 'content.json']
+
+    def setUp(self):
+        self.response = self.client.get(r('one_blog', slug='mangueira-siliconada-e-suporte-fixo-durin'))
+
+    def test_get(self):
+        """GET /noticia/catalogos/ must return status code 200"""
+        self.assertEqual(200, self.response.status_code)
+
+    def test_template(self):
+        self.assertTemplateUsed(self.response, 'blogs/blog.html')
+
+    def test_html(self):
+        contents = ['Mangueira Siliconada e Suporte Fixo Durín',
+                    '3 de Março de 2017 às 19:12',
+                    'Conheça mais este novo kit premium Durín!!',
+                    'lanc-durin-mangueira-siliconada-mar-17_01.png',
+                    'a href="."',
+                    ]
+
+        for expected in contents:
+            with self.subTest():
+                self.assertContains(self.response, expected)
+
+    def test_context_blog_main(self):
+        """Blog month must be in context"""
+        main = self.response.context['blog']
+        self.assertIsInstance(main, Blogs)
+
+
+class SpecificBlogNotFound(TestCase):
+    def test_publish_is_false(self):
+        """Blog should return 404 when model field PUBLISH == False"""
+        response = self.client.get(r('one_blog', slug='promocao-durin-fevereiro17'))
+        self.assertEqual(404, response.status_code)
+
+    def test_slug_not_found(self):
+        """Blog should return 404 when slug == not-found"""
+        response = self.client.get(r('one_blog', slug='not-found'))
+        self.assertEqual(404, response.status_code)
