@@ -3,15 +3,20 @@
 <html lang="pt-br">
 
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:locale" content="pt_BR" />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content="{% block mtitle %}{% endblock %}" />
-        <meta property="og:description" content="{% block mdescription %}{% endblock %}" />
-        <meta property="og:image" content="{% block mimage %}{% endblock %}" />
+        <meta property="og:description" content="{% block mdescription %}Você mais perto de seu representante comercial!{% endblock %}" />
+        <meta property="og:image" content="{% static 'img/logo_preview.png' %}" />
+        <meta property="og:url" content="http://www.rvprepresentacao.com.br/" />
+        <meta property="og:site_name" content="RVP Representação" />
+
+        <title>{% block title %}{% endblock %}</title>
 
         {% block canonical %}{% endblock %}
-        <title>{% block title %}{% endblock %}</title>
 
 
         {# Fav Icons #}
