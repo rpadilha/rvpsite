@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block mtitle %}{{ blog.title }}{% endblock %}
+{% block mimage %}{% static 'img/logo_preview.png' %}{% endblock %}
+
 {% block canonical %}
     <link rel="canonical" href="http://www.rvprepresentacao.com.br/noticia/{{ blog.slug }}/">
 {% endblock %}
 
 {% block title %}Notícias - RVP Representação{% endblock %}
-
 {% block css %}<link href="{% static 'css/styles.css' %}" rel="stylesheet">{% endblock %}
 
 {% block content %}

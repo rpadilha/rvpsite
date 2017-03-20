@@ -16,10 +16,6 @@ def representations(request):
     return render(request, 'representations.html')
 
 
-def blog(request):
-    return render(request, 'blog.html')
-
-
 #######################
 ## SUPPORT FUNCTIONS ##
 #######################
